@@ -19,9 +19,7 @@ stackMethods.push = function(value){
 
 stackMethods.pop = function(){
   var keys = Object.keys(this.storage);
-  console.log(keys);
   this.popped.push(this.storage[keys.length - 1]);
-  // console.log(this.popped);
   delete this.storage[keys.length - 1];
   this.keyCounter --;
   return this.popped[this.popped.length - 1];
