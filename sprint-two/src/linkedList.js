@@ -27,26 +27,32 @@ var LinkedList = function() {
 
   list.contains = function(target) {
     var found = false;
-    debugger;
-    if(list.head.value !== target){
-      if(list.head.next === null) {
-      return found;
-      } else if (list.head.next !== null && list.head.next === target){
+    //debugger;
+
+    var inner = function(start){
+      if(list.head.value !== target){
+        if(list.head.next === null) {
+          return found;
+        } else if (list.head.next !== null && list.head.next === target){
+          found = true;
+          return found;
+        } else {
+          found = false;
+          return found;
+        }  
+      } else {
         found = true;
         return found;
-      } else {
-      list.contains(target);
-      // if (found){
-      //   return found;
-      // }
       }
-    } else {
-      found = true;
+      inner(start.next);  
     }
+    // return found;
+
+  found = inner(list.head);
+
   return found;
   };
-
-  return list;
+return list;
 };
 
 var Node = function(value) {
