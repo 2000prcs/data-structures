@@ -4,9 +4,23 @@ var LinkedList = function() {
   list.tail = null;
 
   list.addToTail = function(value) {
+    
+    list.tail = Node(value);
+    if (list.head === null) {
+    //if there is no head, the list is empty. 
+      list.head = list.tail;
+    //Set head equal to tail initially, except tail.next is equal to 
+      list.head.next = value;
+      }
+    
+    // this.tail.value = value;
   };
 
   list.removeHead = function() {
+    // var head = Node();
+    // var rememberHead = list.head;
+    list.head = null;
+    
   };
 
   list.contains = function(target) {
@@ -27,3 +41,4 @@ var Node = function(value) {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+Node(4)
