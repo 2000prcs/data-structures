@@ -17,7 +17,6 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
-  debugger;
   var found = false;
 
   var recursiveFunc = function(start) {
