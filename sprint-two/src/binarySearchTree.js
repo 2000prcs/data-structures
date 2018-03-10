@@ -3,7 +3,7 @@ var BinarySearchTree = function(value) {
   tree.left = null;
   tree.right = null;
   tree.value = value;
-  tree.storage = {};
+  tree.storage = [value];
   return tree;
 };
 
@@ -14,44 +14,61 @@ var BinarySearchTree = function(value) {
 
 var binaryTreeMethods = {};
 
-binaryTreeMethods.insert = function(newValue){
+binaryTreeMethods.insert = function (newValue) {
   var childTree = BinarySearchTree(newValue);
-  this.storage[newValue] = childTree;
-  // console.log(this);
-  // debugger;
-  //   console.log(this, childTree);
-      var findSpot = function(node){
-        if(node.value > newValue){
-          if(node.left === null){
-            node.left = childTree;
-            //childTree.left = newValue;
-            return;
-          } else {
-            findSpot(node.storage[node.value]);
-          }
-        } else {
-          if(node.right === null){
-            node.right = childTree;
-            //childTree.right = newValue;
-            return;
-          } else {
-            findSpot(node.storage[node.value]);
-          }
-        }
+  this.storage.push(newValue);
+  var findSpot = function(node){
+    if(node.value > newValue){
+      if(node.left === null){
+        node.left = childTree;
+        return;
+      } else {
+        findSpot(node.left);
       }
+    } else {
+      if(node.right === null){
+        node.right = childTree;
+        return;
+      } else {
+        findSpot(node.right);
+      }
+    }
+  }
   findSpot(this);
-  console.log('left', this.left);
-  console.log('right', this.right);
-  console.log('this', this);
-  // console.log(this);
 };
 
 
 binaryTreeMethods.contains = function(value){
-  //accepts a value and returns a boolean reflecting whether or not the value is contained in the tree.
+  //accepts a value and returns a boolean reflecting whether or not the value is contained in the tree.   
+var findValue = function(node){
+      if(node.value === value) {
+        return true;
+      } else if(node.value > value){
+        if(node.left !== null && node.left.value === value){
+          return true;
+        } else if (node.left === null) {
+          return false;
+        } else {
+          findValue(node.left);
+        }
+      } else {
+        if(node.right !== null && node.right.value === value){
+          return true;
+        } else if (node.right === null) {
+          return false;
+        } else {
+          findValue(node.right);
+        }
+      }
+    return false;
+  };
+  return findValue(this);
+  
 };
 
 binaryTreeMethods.depthFirstLog = function(callback){
   //accepts a callback and executes it on every value contained in the tree.
-
+  for(var i = 0; i < this.storage.length; i ++){
+    callback.call(this, this.storage[i]);
+  }
 };
