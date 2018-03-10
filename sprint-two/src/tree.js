@@ -18,7 +18,6 @@ treeMethods.addChild = function(value) {
 
 treeMethods.contains = function(target) {
   var found = false;
-
   var recursiveFunc = function(start) {
       for(var i = 0; i < start.length; i ++){
         if(start[i].value === target){
