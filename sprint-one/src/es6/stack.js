@@ -2,26 +2,23 @@ class Stack {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
   constructor() {
-    this.storage = {};
-    this.keyCounter = 0;
-    this.popped = [];
-  }
-
-  size(){
-    return Object.keys(this.storage).length;
+    this._storage = {};
+    this._keyCounter = 0;
   }
 
   push(value){
-    this.storage[this.keyCounter] = value;
-    this.keyCounter ++;
+    this._storage[this._keyCounter++] = value;
   }
 
   pop(){
-    var keys = Object.keys(this.storage);
-    this.popped.push(this.storage[keys.length - 1]);
-    delete this.storage[keys.length - 1];
-    this.keyCounter --;
-    return this.popped[this.popped.length - 1];
+    this._keyCounter && this._keyCounter--;
+    var result = this._storage[this._keyCounter];
+    delete this._storage[this._keyCounter];
+    return result;
+  }
+
+  size(){
+    return this._keyCounter;
   }
 }
 
