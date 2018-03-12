@@ -41,5 +41,11 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
-  
+  it('should be able to return the first and the last child', function() {
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.addChild(7);
+    expect(tree.children[0].value).to.equal(5);
+    expect(tree.children.pop().value).to.equal(7);
+  });
 });

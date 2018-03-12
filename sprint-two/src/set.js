@@ -23,11 +23,3 @@ setPrototype.remove = function(item) {
  * Complexity: What is the time complexity of the above functions?
  */
 
-var assertEqualValues = function(actual, expected, testName){
-  if(expected === output){
-    console.log(`PASSED [${testName}]`);
-  }
-    console.log(`FAILED [${testName}] Expected ${expected}, but got ${actual}`);
-}
-
-assertEqualValues()

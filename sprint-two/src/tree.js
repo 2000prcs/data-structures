@@ -1,9 +1,8 @@
 var Tree = function(value) {
   var newTree = {};
   newTree.value = value;
-  // your code here
   //children is an array. Add child should add a child array to the tree object
-  newTree.children = []; // fix me
+  newTree.children = []; 
   _.extend(newTree, treeMethods);
   return newTree;
 };
@@ -11,7 +10,6 @@ var Tree = function(value) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-  this.value = value;
   var child = Tree(value);
   this.children.push(child);
 };
@@ -24,8 +22,7 @@ treeMethods.contains = function(target) {
           found = true;
           return found;
         } else {
-          found = false;
-          recursiveFunc(start[i]);
+          recursiveFunc(start[i].children);
         }
       }  
       return found;
@@ -37,12 +34,3 @@ treeMethods.contains = function(target) {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
-
-var assertEqualValues = function(actual, expected, testName){
-  if(expected === output){
-    console.log(`PASSED [${testName}]`);
-  }
-    console.log(`FAILED [${testName}] Expected ${expected}, but got ${actual}`);
-}
-
-assertEqualValues()
