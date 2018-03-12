@@ -19,16 +19,6 @@ Graph.prototype.contains = function(node) {
   return !!this[node];
 };
 
-// Remove an edge between any two specified (by value) nodes.
-Graph.prototype.removeEdge = function(fromNode, toNode) {
-  this[fromNode].edge = this[fromNode].edge.filter(function(val) {
-    return val !== toNode;
-  })
-  this[toNode].edge = this[toNode].edge.filter(function(val) {
-    return val !== fromNode;
-  });
-};
-
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
   for(var i = 0; i < this[node].edge.length; i++){
@@ -52,6 +42,15 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
   this[toNode].edge.push(fromNode);
 };
 
+// Remove an edge between any two specified (by value) nodes.
+Graph.prototype.removeEdge = function(fromNode, toNode) {
+  this[fromNode].edge = this[fromNode].edge.filter(function(val) {
+    return val !== toNode;
+  })
+  this[toNode].edge = this[toNode].edge.filter(function(val) {
+    return val !== fromNode;
+  });
+};
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
