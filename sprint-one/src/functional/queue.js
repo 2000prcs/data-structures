@@ -3,23 +3,30 @@ var Queue = function() {
 
   // Use an object with numeric keys to store values
   var storage = {};
-  var numberOfKeys = 0;
-  var dequeued = [];
+  // start counter for dequeue -> counting from the start 
+  var start = 0;
+  // end counter for enqueue -> counting from the end 
+  var end = 0;
 
   instance.enqueue = function(value) {
-    storage[numberOfKeys] = value;
-    numberOfKeys ++;
+    // adding elements from the end 
+    storage[end++] = value;
   };
 
   instance.dequeue = function() {
-    var keys = Object.keys(storage);
-    dequeued.push(storage[keys[0]]);
-    delete storage[keys[0]];
-    return dequeued[dequeued.length-1];
+    // storing element from the start 
+    var result = storage[start];
+    // delete the element (value is stored in result)
+    delete storage[start];
+    // if itmes removed are larger than items added, it should report '0'
+    // by calling size() method here, it stores the return value *** closure ***
+    instance.size() && start ++;
+    return result;
   };
 
   instance.size = function() {
-    return Object.keys(storage).length;
+    // calculate how many items left 
+    return end - start;
   };
 
   return instance;
