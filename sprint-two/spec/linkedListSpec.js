@@ -52,4 +52,13 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+
+  it('should return different values of the head and the tail when there are more than 1 element', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.removeHead();
+    linkedList.addToTail(6);
+    expect(linkedList.head.value).to.equal(5);
+    expect(linkedList.tail.value).to.equal(6);
+  });
 });
