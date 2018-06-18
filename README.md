@@ -1,6 +1,6 @@
 # Data Structures
 
-1. Queue
+<h3>Queue</h3>
 
 A queue works like a line for an amusement park ride -- people enter at the end of the queue and leave from the front (FIFO: first in, first out).
 
@@ -9,7 +9,7 @@ A queue works like a line for an amusement park ride -- people enter at the end 
 <strong>A queue would be great for....</strong>
 Issuing instructions to your sandwich-making robot.
 
-2. Stack
+<h3>Stack</h3>
 
 A stack works like a stack of plates -- plates are added and removed from the the top of the stack (LIFO: last in, first out).
 
@@ -18,7 +18,7 @@ A stack works like a stack of plates -- plates are added and removed from the th
 <strong>A stack would be great for...</strong>
 Implementing your browser's back button.
 
-3. Linked List
+<h3>Linked List</h3>
 
 A linked list is a dynamic data structure that allows for constant time insertion and removal at any point in the linked list (compare this to an array which on average has linear time insertion and removal operations). In exchange for this insertion and removal speed, linked lists are not indexed and any find operations on a link list require the linear time operation of traversing the entire linked-list from the beginning.
 
@@ -27,7 +27,7 @@ A linked list is a dynamic data structure that allows for constant time insertio
 A linked list would be great for....
 An itinerary you expect to add and remove destinations to and from.
 
-4. Tree
+<h3>Tree</h3>
 
 A tree is a hierarchical data structure consisting of a node (potentially) with children. The children are trees unto themselves, that is, nodes with (potential) children. For this reason the tree is referred to as a recursive data structure.
 
@@ -36,7 +36,7 @@ A tree is a hierarchical data structure consisting of a node (potentially) with 
 A tree would be great for....
 Making a family tree.
 
-5. Graph
+<h3>Graph</h3>
 
 Graphs consist of nodes (often referred to as vertices) and edges (often referred to as arcs) that connect the nodes. Unlike trees, graphs are not necessarily hierarchical. Graphs can be undirected, which means that the relationship of any 2 nodes connected by an edge is a symmetrical relationship, or they can be directed, which means there is an asymmetrical relationship between nodes that are connected by an edge. You will be implementing an undirected graph.
 
@@ -45,7 +45,7 @@ Graphs consist of nodes (often referred to as vertices) and edges (often referre
 A graph would be great for....
 Representing how a collection of websites (or the entire world wide web) link to each other, and many other things
 
-6. Set
+<h3>Set</h3>
 
 Sets contain unique values in no particular order.
 
@@ -54,7 +54,7 @@ Sets contain unique values in no particular order.
 A set would be great for....
 A raffle, where all the tickets are unique and you just want to randomly pick one (or several) out of them all.
 
-7. Hash Table
+<h3>Hash Table</h3>
 
 Hash tables (sometimes called hash maps) store key value pairs. They do so in a memory efficient way by using a 'hashing function' that translates keys into numerical indices located within a fixed block of memory (think about the contiguous blocks of memory used in arrays). Hash tables only increase their size in memory when necessary, and reduce their size in memory when possible.
 
@@ -67,7 +67,7 @@ A contact list you might add to or remove from over time.
 
 **Interesting Aside: JavaScript objects aren't necessarily backed by hash tables. Despite the similarities, the ECMA-262 standard makes no restrictions on how JavaScript objects are implmented. The V8 JavaScript engine, which is used in Chrome, implements objects in a way that is significantly faster than using a hash table.
 
-8. Binary Search Tree
+<h3>Binary Search Tree</h3>
 
 Binary trees are trees that can only have 0, 1, or 2 children. Remember that trees are recursive data structures and therefore a tree's children are themselves trees and can each have 0, 1, or 2 children. In a binary search tree, one child (out of potentially two) will always be less than the node's value (based on whatever sorting condition you wish) and the other child will always be greater than the node's value. Whether it is the 'left' or the 'right' child which is greater or lesser is consistent throughout the binary search tree. This structure results in particularly fast find operations. You'll be asked to answer just how fast yourself.
 
